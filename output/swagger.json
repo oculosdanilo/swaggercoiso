@@ -78,7 +78,7 @@
           }
         } ],
         "tags" : [ "Cadastrar" ],
-        "summary" : "Criar um novo sorvete",
+        "summary" : "Cadastrar um novo sorvete",
         "description" : "Criação de um novo registro",
         "responses" : {
           "201" : {
