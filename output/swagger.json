@@ -75,7 +75,7 @@
         "type" : "object",
         "required" : [ "email", "password" ],
         "properties" : {
-          "e-mail" : {
+          "email" : {
             "type" : "string",
             "minimum" : 1,
             "example" : "admin",
