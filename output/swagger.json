@@ -1,0 +1,78 @@
+{
+  "openapi" : "3.0.0",
+  "servers" : [ {
+    "description" : "SwaggerHub API Sorvete",
+    "url" : "https://virtserver.swaggerhub.com/CAMILASILVA1449/API-Teste/1.0.0"
+  } ],
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "API de Sorvete",
+    "description" : "A API serve para auxiliar na contagem de estoque de sorvetes. The API is used to help count inventory the ice cream."
+  },
+  "tags" : [ {
+    "name" : "Sorvetes",
+    "description" : "Retorna o estoque",
+    "externalDocs" : {
+      "description" : "documentação externa",
+      "url" : "www.sdsff.com.br"
+    }
+  }, {
+    "name" : "Sabores",
+    "description" : "Exibe os sorvetes"
+  } ],
+  "paths" : {
+    "/sorvetes" : {
+      "get" : {
+        "tags" : [ "Sabores" ],
+        "summary" : "Buscar sorvete",
+        "parameters" : [ {
+          "name" : "sabor",
+          "in" : "header",
+          "example" : "Chocolate",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "id",
+          "in" : "header",
+          "required" : false,
+          "description" : "Número de identificação de um sorvete",
+          "example" : 19,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "description" : "Buscar todos os sorvetes ou por id",
+        "security" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "400" : {
+            "description" : "Erro de aquisição"
+          },
+          "401" : {
+            "description" : "Não autorizado"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Schema" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "500" : {
+            "description" : "Erro no servidor"
+          }
+        }
+      }
+    }
+  }
+}
