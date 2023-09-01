@@ -66,6 +66,25 @@
             "description" : "Erro no servidor"
           }
         }
+      },
+      "post" : {
+        "parameters" : [ {
+          "name" : "token",
+          "in" : "header",
+          "example" : "BEY 2",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "tags" : [ "Cadastrar" ],
+        "summary" : "Criar um novo sorvete",
+        "description" : "Criação de um novo registro",
+        "responses" : {
+          "201" : {
+            "description" : "ok"
+          }
+        }
       }
     }
   },
