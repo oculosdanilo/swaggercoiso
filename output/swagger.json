@@ -19,6 +19,9 @@
   }, {
     "name" : "Sabores",
     "description" : "Exibe os sorvetes"
+  }, {
+    "name" : "Cadastrar",
+    "description" : "Criar um novo sorvete"
   } ],
   "paths" : {
     "/sorvetes" : {
