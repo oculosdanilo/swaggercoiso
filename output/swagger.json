@@ -54,6 +54,9 @@
           },
           "401" : {
             "description" : "Não autorizado"
+          },
+          "500" : {
+            "description" : "Erro no servidor"
           }
         }
       }
