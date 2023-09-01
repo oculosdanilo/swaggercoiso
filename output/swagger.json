@@ -47,7 +47,14 @@
         "security" : [ ],
         "responses" : {
           "200" : {
-            "description" : "OK"
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/response_usuario"
+                }
+              }
+            }
           },
           "400" : {
             "description" : "Erro de aquisição"
