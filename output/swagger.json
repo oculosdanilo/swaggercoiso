@@ -64,9 +64,23 @@
   },
   "components" : {
     "schemas" : {
-      "body_request" : {
+      "response_usuarios" : {
         "type" : "object",
-        "required" : [ "email", "password" ]
+        "required" : [ "email", "password" ],
+        "properties" : {
+          "e-mail" : {
+            "type" : "string",
+            "minimum" : 1,
+            "example" : "admin",
+            "format" : "email"
+          },
+          "password" : {
+            "type" : "string",
+            "minimum" : 5,
+            "example" : 12345,
+            "format" : "password"
+          }
+        }
       }
     }
   }
