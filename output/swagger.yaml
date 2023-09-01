@@ -57,14 +57,26 @@
           },
           "401" : {
             "description" : "Não autorizado"
-          },
-          "500" : {
-            "description" : "Erro no servidor"
           }
         },
         "security" : [ ]
       }
     }
   },
-  "components" : { }
+  "components" : {
+    "schemas" : {
+      "Schema" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "500" : {
+            "description" : "Erro no servidor"
+          }
+        }
+      }
+    }
+  }
 }
