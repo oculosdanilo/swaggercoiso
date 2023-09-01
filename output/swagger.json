@@ -64,7 +64,7 @@
   },
   "components" : {
     "schemas" : {
-      "response_usuarios" : {
+      "response_usuario" : {
         "type" : "object",
         "required" : [ "email", "password" ],
         "properties" : {
