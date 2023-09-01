@@ -61,5 +61,13 @@
         }
       }
     }
+  },
+  "components" : {
+    "schemas" : {
+      "body_request" : {
+        "type" : "object",
+        "required" : [ "email", "password" ]
+      }
+    }
   }
 }
