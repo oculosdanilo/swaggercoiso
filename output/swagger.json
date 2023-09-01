@@ -11,22 +11,38 @@
   },
   "tags" : [ {
     "name" : "Sorvetes",
-    "description" : "Retorna o estoque",
+    "description" : "Tudo sobre sorvetes",
     "externalDocs" : {
       "description" : "documentação externa",
       "url" : "www.sdsff.com.br"
     }
   }, {
-    "name" : "Sabores",
-    "description" : "Exibe os sorvetes"
-  }, {
-    "name" : "Cadastrar",
-    "description" : "Criar um novo sorvete"
+    "name" : "Usuario",
+    "description" : "Criar Usuarios"
   } ],
   "paths" : {
     "/sorvetes" : {
+      "post" : {
+        "parameters" : [ {
+          "name" : "token",
+          "in" : "header",
+          "example" : "BEY 2",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "tags" : [ "Sorvetes" ],
+        "summary" : "Criar um novo sorvete",
+        "description" : "Criação de um novo registro",
+        "responses" : {
+          "201" : {
+            "description" : "ok"
+          }
+        }
+      },
       "get" : {
-        "tags" : [ "Sabores" ],
+        "tags" : [ "Sorvetes" ],
         "summary" : "Buscar sorvete",
         "parameters" : [ {
           "name" : "sabor",
@@ -67,25 +83,6 @@
           },
           "500" : {
             "description" : "Erro no servidor"
-          }
-        }
-      },
-      "post" : {
-        "parameters" : [ {
-          "name" : "token",
-          "in" : "header",
-          "example" : "BEY 2",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "tags" : [ "Cadastrar" ],
-        "summary" : "Criar um novo sorvete",
-        "description" : "Criação de um novo registro",
-        "responses" : {
-          "201" : {
-            "description" : "ok"
           }
         }
       }
