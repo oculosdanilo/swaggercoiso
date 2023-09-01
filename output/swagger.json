@@ -78,7 +78,7 @@
           }
         } ],
         "tags" : [ "Cadastrar" ],
-        "summary" : "Cadastrar um novo sorvete",
+        "summary" : "Criar um novo sorvete",
         "description" : "Criação de um novo registro",
         "responses" : {
           "201" : {
@@ -96,8 +96,8 @@
         "properties" : {
           "email" : {
             "type" : "string",
-            "minimum" : 1,
-            "example" : "admin",
+            "minimum" : 15,
+            "example" : "admin@gmail.com",
             "format" : "email"
           },
           "password" : {
