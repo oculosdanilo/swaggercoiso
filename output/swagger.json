@@ -11,22 +11,30 @@
   },
   "tags" : [ {
     "name" : "Sorvetes",
-    "description" : "Tudo sobre sorvetes",
+    "description" : "Tudo sobre Sorvetes",
     "externalDocs" : {
       "description" : "documentação externa",
       "url" : "www.sdsff.com.br"
     }
   }, {
     "name" : "Usuario",
-    "description" : "Criar Usuarios"
+    "description" : "Tudo sobre Usuários"
   } ],
   "paths" : {
     "/sorvetes" : {
       "post" : {
         "parameters" : [ {
-          "name" : "token",
+          "name" : "sorvete",
           "in" : "header",
-          "example" : "BEY 2",
+          "example" : "Flocos",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "preco",
+          "in" : "header",
+          "example" : "R$5,00",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -53,10 +61,172 @@
             "type" : "string"
           }
         }, {
+          "name" : "preco",
+          "in" : "header",
+          "required" : false,
+          "description" : "Preço do sorvete",
+          "example" : "R$5,00",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "id",
           "in" : "header",
           "required" : false,
           "description" : "Número de identificação de um sorvete",
+          "example" : 19,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "description" : "Buscar todos os sorvetes ou por id",
+        "security" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/response_sorvete"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Erro de aquisição"
+          },
+          "401" : {
+            "description" : "Não autorizado"
+          },
+          "500" : {
+            "description" : "Erro no servidor"
+          }
+        }
+      },
+      "delete" : {
+        "parameters" : [ {
+          "name" : "Id",
+          "in" : "header",
+          "example" : 26,
+          "required" : true,
+          "schema" : {
+            "type" : "number"
+          }
+        } ],
+        "tags" : [ "Sorvetes" ],
+        "summary" : "Deleta sorvete pelo id",
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "400" : {
+            "description" : "Erro de aquisição"
+          },
+          "401" : {
+            "description" : "Não autorizado"
+          },
+          "500" : {
+            "description" : "Erro no servidor"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Sorvetes" ],
+        "summary" : "Atualizar um sorvete",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "header",
+          "required" : true,
+          "description" : "Número de identificação de um sorvete",
+          "example" : 19,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "sabor",
+          "in" : "header",
+          "example" : "Chocolate",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "preco",
+          "in" : "header",
+          "example" : "R$5,00",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "400" : {
+            "description" : "Erro de aquisição"
+          },
+          "401" : {
+            "description" : "Não autorizado"
+          },
+          "500" : {
+            "description" : "Erro no servidor"
+          }
+        }
+      }
+    },
+    "/usuarios" : {
+      "post" : {
+        "parameters" : [ {
+          "name" : "nome",
+          "in" : "header",
+          "example" : "Jimim",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "email",
+          "in" : "header",
+          "example" : "jimim@gmail.com",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "senha",
+          "in" : "header",
+          "example" : "2589lf*",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "tags" : [ "Usuario" ],
+        "summary" : "Criar um novo usuário",
+        "description" : "Criação de um novo registro",
+        "responses" : {
+          "201" : {
+            "description" : "ok"
+          }
+        }
+      },
+      "get" : {
+        "tags" : [ "Usuario" ],
+        "summary" : "Buscar usuários",
+        "parameters" : [ {
+          "name" : "email",
+          "in" : "header",
+          "example" : "jimim@gmail.com",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "id",
+          "in" : "header",
+          "required" : false,
+          "description" : "Número de identificação de um usuário",
           "example" : 19,
           "schema" : {
             "type" : "string"
@@ -85,6 +255,69 @@
             "description" : "Erro no servidor"
           }
         }
+      },
+      "delete" : {
+        "parameters" : [ {
+          "name" : "Id",
+          "in" : "header",
+          "example" : 26,
+          "required" : true,
+          "schema" : {
+            "type" : "number"
+          }
+        } ],
+        "tags" : [ "Usuario" ],
+        "summary" : "Deleta usuário pelo id",
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "400" : {
+            "description" : "Erro de aquisição"
+          },
+          "401" : {
+            "description" : "Não autorizado"
+          },
+          "500" : {
+            "description" : "Erro no servidor"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Usuario" ],
+        "summary" : "Atualizar um usuário",
+        "parameters" : [ {
+          "name" : "email",
+          "in" : "header",
+          "example" : "Jimim@gmail.com",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "id",
+          "in" : "header",
+          "required" : false,
+          "description" : "Número de identificação de um sorvete",
+          "example" : 19,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "400" : {
+            "description" : "Erro de aquisição"
+          },
+          "401" : {
+            "description" : "Não autorizado"
+          },
+          "500" : {
+            "description" : "Erro no servidor"
+          }
+        }
       }
     }
   },
@@ -92,12 +325,18 @@
     "schemas" : {
       "response_usuario" : {
         "type" : "object",
-        "required" : [ "email", "password" ],
+        "required" : [ "nome", "email", "password" ],
         "properties" : {
+          "nome" : {
+            "type" : "string",
+            "minimum" : 15,
+            "example" : "Jimim",
+            "format" : "nome"
+          },
           "email" : {
             "type" : "string",
             "minimum" : 15,
-            "example" : "admin@gmail.com",
+            "example" : "jimim@gmail.com",
             "format" : "email"
           },
           "password" : {
@@ -105,6 +344,30 @@
             "minimum" : 5,
             "example" : 12345,
             "format" : "password"
+          }
+        }
+      },
+      "response_sorvete" : {
+        "type" : "object",
+        "required" : [ "id", "sabor", "preco" ],
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "minimum" : 5,
+            "example" : 12345,
+            "format" : "number"
+          },
+          "sabor" : {
+            "type" : "string",
+            "minimum" : 15,
+            "example" : "chocolate",
+            "format" : "string"
+          },
+          "preco" : {
+            "type" : "string",
+            "minimum" : 20,
+            "example" : "R$5,00",
+            "format" : "number"
           }
         }
       }
